@@ -8,13 +8,7 @@ Week 6
 
 3. Import the data from foodTrucksJSON.js using the following steps:
 
-  1. Make sure you've installed MongoDB by following the instructions either here: 
-
-     https://canvas.uw.edu/courses/985046/pages/installing-mongodb-on-macos?module_item_id=5993493  (for Mac users)
-
-     or here: 
-
-     https://canvas.uw.edu/courses/985046/pages/installing-mongodb-on-windows?module_item_id=5993494 (for Windows users)
+  1. Make sure you've installed MongoDB by following the instructions [here](https://github.com/JSCRIPT300-Spring2016/JSCRIPT300-Spring2016.github.io/wiki/Installing-MongoDB) (both MacOS and Windows): 
 
   2. Make sure MongoDB is running by typing mongod - you should see it start up and output:
   
