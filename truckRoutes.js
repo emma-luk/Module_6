@@ -15,22 +15,27 @@ router.route('/')
           if (error) {
               response.status(500).send(error);
           } else {
-              response.json(results);
+              response.send(results);
           }
       });
   })
   .post(urlEncoded, function (request, response) {
-      var truck = new Truck(request.body);
-      truck.save(function (error, newTruck) {
-          if (error) {
-              response.status(500).send(error);
-          } else {
-              response.status(201).send(newTruck);
-          }
-      });
+      var newTruck = new Truck(request.body);
+
+      if (newTruck) {
+          newTruck.save(function (error, results) {
+              if (error) {
+                  response.status(500).send(error);
+              } else {
+                  response.status(201).send(results);
+              }
+          });
+      } else {
+          response.status(400).json('error creating truck');
+      }
   });
 
-router.route('/:truckId')
+router.route('/:id')
   .get(function (request, response) {
       var truckId = request.params.truckId;
 
@@ -40,7 +45,7 @@ router.route('/:truckId')
           if (error) {
               response.status(500).send(error);
           } else {
-              response.json(results);
+              response.send(results);
           }
       });
   })
@@ -52,7 +57,7 @@ router.route('/:truckId')
           if (error) {
               response.status(500).send(error);
           } else {
-              response.status(204).send('removed');
+              response.status(204).json('truck removed');
           }
       });
   });
